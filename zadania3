@@ -1,0 +1,877 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+//        //zadanie1
+//        int[] tablica = new int[10];
+//        Random rand = new Random();
+//        for (int i = 0; i < tablica.length; i++) {
+//            tablica[i] = rand.nextInt(21) - 10;
+//        }
+//        System.out.println("Wylosowane liczby:");
+//        for (int i : tablica) {
+//            System.out.print(i + " ");
+//        }
+//        System.out.println();
+//        int min = tablica[0];
+//        int max = tablica[0];
+//        for (int i : tablica) {
+//            if (i < min) {
+//                min = i;
+//            }
+//            if (i > max) {
+//                max = i;
+//            }
+//        }
+//        System.out.println("Min: " + min);
+//        System.out.println("Max: " + max);
+//        int sum = 0;
+//        for (int i : tablica) {
+//            sum += i;
+//        }
+//        double srednia = (double) sum / tablica.length;
+//        System.out.println("Średnia: " + srednia);
+//        int mniejszeOdSredniej = 0;
+//        int wiekszeOdSredniej = 0;
+//        for (int i : tablica) {
+//            if (i < srednia) {
+//                mniejszeOdSredniej++;
+//            } else if (i > srednia) {
+//                wiekszeOdSredniej++;
+//            }
+//        }
+//        System.out.println("Mniejszych od śr.: " + mniejszeOdSredniej);
+//        System.out.println("Większych od śr.: " + wiekszeOdSredniej);
+//        System.out.println("Liczby w odwrotnej kolejnosci:");
+//        for (int i = tablica.length - 1; i >= 0; i--) {
+//            System.out.print(tablica[i] + " ");
+//        }
+//        //zadanie2
+//        Random rand = new Random();
+//        int[] tablica = new int[20];
+//        int[] wystepowanie = new int[10];
+//        for(int i = 0; i < tablica.length; i++){
+//            tablica[i] = rand.nextInt(10) + 1;
+//            wystepowanie[tablica[i] - 1]++;
+//        }
+//        System.out.print("Wylosowane liczby: ");
+//        for (int i : tablica){
+//            System.out.print(i + " ");
+//        }
+//        System.out.println();
+//        System.out.println("Wystapienia: ");
+//        for (int i = 0; i < wystepowanie.length; i++){
+//            System.out.println((i + 1) + " - " + wystepowanie[i]);
+//        }
+//        //zadanie3
+//        int[][] tablica = new int[5][5];
+//        Random rand = new Random();
+//        for (int i = 0; i < 5; i++) {
+//            for (int j = 0; j < 5; j++) {
+//                tablica[i][j] = rand.nextInt(11) - 5;
+//            }
+//        }
+//        System.out.println("Tablica:");
+//        for (int i = 0; i < 5; i++) {
+//            for (int j = 0; j < 5; j++) {
+//                System.out.print(tablica[i][j] + "\t");
+//            }
+//            System.out.println();
+//        }
+//        int[] minK = new int[5];
+//        int[] maxK = new int[5];
+//        for (int j = 0; j < 5; j++) {
+//            minK[j] = tablica[0][j];
+//            maxK[j] = tablica[0][j];
+//            for (int i = 1; i < 5; i++) {
+//                if (tablica[i][j] < minK[j]) minK[j] = tablica[i][j];
+//                if (tablica[i][j] > maxK[j]) maxK[j] = tablica[i][j];
+//            }
+//        }
+//        System.out.print("Minimum: ");
+//        for (int min : minK) {
+//            System.out.print(min + " ");
+//        }
+//        System.out.println();
+//
+//        System.out.print("Maksimum: ");
+//        for (int max : maxK) {
+//            System.out.print(max + " ");
+//        }
+//        //zadanie 4
+//        Scanner read = new Scanner(System.in);
+//        System.out.print("Wejście: ");
+//        int a = read.nextInt();
+//        int[] bin = new int[32];
+//        int abs = Math.abs(a);
+//        for (int i = 31; i > 0; i--) {
+//            bin[i] = abs % 2;
+//            abs = abs / 2;
+//        }
+//        if (a < 0) {
+//            bin[0] = 1;
+//        } else {
+//            bin[0] = 0;
+//        }
+//        System.out.print("Wyjście: ");
+//        for (int i = 0; i < 32; i++) {
+//            System.out.print(bin[i]);
+//        }
+//        //zadanie5
+//        Scanner read = new Scanner(System.in);
+//        System.out.print("Wejście: ");
+//        int a = read.nextInt();
+//        int[] binZM = new int[32];
+//        int[] binZU1 = new int[32];
+//        int[] binZU2 = new int[32];
+//        int abs = Math.abs(a);
+//        for (int i = 31; i > 0; i--) {
+//            binZM[i] = abs % 2;
+//            abs = abs / 2;
+//        }
+//        if (a < 0) {
+//            binZM[0] = 1;
+//        } else {
+//            binZM[0] = 0;
+//        }
+//        for (int i = 0; i < 32; i++) {
+//            if (a < 0) {
+//                binZU1[i] = (binZM[i] == 0) ? 1 : 0;
+//            } else {
+//                binZU1[i] = binZM[i];
+//            }
+//        }
+//        boolean p = false;
+//        if (a < 0) {
+//            for (int i = 31; i >= 0; i--) {
+//                if (binZU1[i] == 1 && !p) {
+//                    binZU2[i] = 0;
+//                    p = true;
+//                } else if (binZU1[i] == 0 && p) {
+//                    binZU2[i] = 1;
+//                    p = false;
+//                } else {
+//                    binZU2[i] = binZU1[i];
+//                }
+//            }
+//        } else {
+//            for (int i = 0; i < 32; i++) {
+//                binZU2[i] = binZM[i];
+//            }
+//        }
+//        System.out.print("Wyjście ZM: ");
+//        wypisz(binZM);
+//        System.out.print("Wyjście ZU1: ");
+//        wypisz(binZU1);
+//        System.out.print("Wyjście ZU2: ");
+//        wypisz(binZU2);
+//        }
+//        public static void wypisz(int[] tablica) {
+//        for (int i : tablica) {
+//            System.out.print(i);
+//        }
+//        System.out.println();
+        //zadanie6
+        Scanner read = new Scanner(System.in);
+        System.out.print("Podaj liczbę: ");
+        int a = read.nextInt();
+        System.out.print("Podaj liczbę: ");
+        int b = read.nextInt();
+        int[] bin1 = toZM(a);
+        int[] bin2 = toZM(b);
+        System.out.println("Liczba w ZM: " + binToStr(bin1));
+        System.out.println("Liczba w ZM: " + binToStr(bin2));
+        System.out.println("Dodawanie:");
+        results(add(bin1, bin2, "ZM"), "ZM");
+        results(add(toZU1(bin1), toZU1(bin2), "ZU1"), "ZU1");
+        results(add(toZU2(bin1), toZU2(bin2), "ZU2"), "ZU2");
+
+        System.out.println("Odejmowanie:");
+        results(sub(bin1, bin2, "ZM"), "ZM");
+        results(sub(toZU1(bin1), toZU1(bin2), "ZU1"), "ZU1");
+        results(sub(toZU2(bin1), toZU2(bin2), "ZU2"), "ZU2");
+
+        read.close();
+    }
+
+    public static int[] toZM(int a){
+            Scanner read = new Scanner(System.in);
+            int[] binZM = new int[32];
+            int abs = Math.abs(a);
+            for (int i = 31; i > 0; i--) {
+                binZM[i] = abs % 2;
+                abs = abs / 2;
+            }
+            if (a < 0) {
+                binZM[0] = 1;
+            } else {
+                binZM[0] = 0;
+            }
+            return binZM;
+        }
+
+
+    public static int[] toZU1(int[] zm) {
+        int[] zu1 = new int[32];
+        System.arraycopy(zm, 0, zu1, 0, 32);
+        if (zm[0] == 1) {
+            for (int i = 1; i < 32; i++) {
+                zu1[i] = 1 - zu1[i];
+            }
+        }
+        return zu1;
+    }
+
+    public static int[] toZU2(int[] zm) {
+        int[] zu2 = toZU1(zm);
+        if (zm[0] == 1) {
+            for (int i = 31; i > 0; i--) {
+                if (zu2[i] == 0) {
+                    zu2[i] = 1;
+                    break;
+                }
+                zu2[i] = 0;
+            }
+        }
+        return zu2;
+    }
+
+    public static String binToStr(int[] binarne) {
+        StringBuilder sb = new StringBuilder();
+        for (int bit : binarne) {
+            sb.append(bit);
+        }
+        return sb.toString();
+    }
+
+    public static int[] add(int[] a, int[] b, String kod) {
+        int[] wynik = new int[32];
+        int przeniesienie = 0;
+        for (int i = 31; i >= 0; i--) {
+            int suma = a[i] + b[i] + przeniesienie;
+            wynik[i] = suma % 2;
+            przeniesienie = suma / 2;
+        }
+
+        if (kod.equals("ZU2") && a[0] == b[0] && wynik[0] != a[0]) {
+            System.out.println("Uwaga: Wystąpiło przepełnienie w kodzie ZU2!");
+        }
+
+        return wynik;
+    }
+
+    public static int[] sub(int[] a, int[] b, String kod) {
+        int[] przeciwnaB = new int[32];
+        System.arraycopy(b, 0, przeciwnaB, 0, 32);
+
+        if (kod.equals("ZM")) {
+            przeciwnaB[0] = 1 + przeciwnaB[0];
+        } else if (kod.equals("ZU1") || kod.equals("ZU2")) {
+            for (int i = 0; i < 32; i++) {
+                przeciwnaB[i] = 1 - przeciwnaB[i];
+            }
+
+            if (kod.equals("ZU2")) {
+                for (int i = 31; i >= 0; i--) {
+                    if (przeciwnaB[i] == 0) {
+                        przeciwnaB[i] = 1;
+                        break;
+                    }
+                    przeciwnaB[i] = 0;
+                }
+            }
+            if (kod.equals("ZU1")) {
+                for (int i = 31; i >= 0; i--) {
+                    if (przeciwnaB[i] == 0) {
+                        przeciwnaB[i] = 1;
+                        break;
+                    }
+                    przeciwnaB[i] = 0;
+                }
+            }
+        }
+
+        return add(a, przeciwnaB, kod);
+    }
+
+    public static void results(int[] result, String kod) {
+        System.out.println("Wynik w  " + kod + ": " + binToStr(result));
+        if (kod.equals("ZM")) {
+            System.out.println("Wynik dziesiętny: " + zmToDecimal(result));
+        } else if (kod.equals("ZU1")) {
+            System.out.println("Wynik dziesiętny: " + zu1ToDecimal(result));
+        } else if (kod.equals("ZU2")) {
+            System.out.println("Wynik dziesiętny: " + zu2ToDecimal(result));
+        }
+    }
+
+    public static int zmToDecimal(int[] zm) {
+        int wartosc = 0;
+        for (int i = 1; i < 32; i++) {
+            wartosc = (wartosc << 1) | zm[i];
+        }
+        return zm[0] == 1 ? -wartosc : wartosc;
+    }
+
+    public static int zu1ToDecimal(int[] zu1) {
+        if (zu1[0] == 0) {
+            return zmToDecimal(zu1);
+        }
+        int wartosc = 0;
+        for (int i = 1; i < 32; i++) {
+            wartosc = (wartosc << 1) | (1 - zu1[i]);
+        }
+        return -wartosc;
+    }
+
+    public static int zu2ToDecimal(int[] zu2) {
+        if (zu2[0] == 0) {
+            return zmToDecimal(zu2);
+        }
+        int wartosc = 0;
+        for (int i = 1; i < 32; i++) {
+            wartosc = (wartosc << 1) | zu2[i];
+        }
+        return -((1 << 31) - wartosc);
+    }
+
+
+
+//        public static String toZM(int a){
+//            Scanner read = new Scanner(System.in);
+//            int[] binZM = new int[32];
+//            int abs = Math.abs(a);
+//            for (int i = 31; i > 0; i--) {
+//                binZM[i] = abs % 2;
+//                abs = abs / 2;
+//            }
+//            if (a < 0) {
+//                binZM[0] = 1;
+//            } else {
+//                binZM[0] = 0;
+//            }
+//
+//            String numZM = "";
+//            for(int i : binZM) {
+//                numZM += (i);
+//            }
+//            return numZM;
+//        }
+//        public static String toZU1(int a){
+//            int[] binZM = new int[32];
+//            int[] binZU1 = new int[32];
+//            int abs = Math.abs(a);
+//            for (int i = 31; i > 0; i--) {
+//                binZM[i] = abs % 2;
+//                abs = abs / 2;
+//            }
+//            if (a < 0) {
+//                binZM[0] = 1;
+//            } else {
+//                binZM[0] = 0;
+//            }
+//            for (int i = 0; i < 32; i++) {
+//                if (a < 0) {
+//                    binZU1[i] = (binZM[i] == 0) ? 1 : 0;
+//                } else {
+//                    binZU1[i] = binZM[i];
+//                }
+//            }String numZU1 = "";
+//            for(int i : binZU1) {
+//                numZU1 += (i);
+//            }
+//            return numZU1;
+//    }
+//    public static String toZU2(int a){
+//        int[] binZM = new int[32];
+//        int[] binZU1 = new int[32];
+//        int[] binZU2 = new int[32];
+//        int abs = Math.abs(a);
+//        for (int i = 31; i > 0; i--) {
+//            binZM[i] = abs % 2;
+//            abs = abs / 2;
+//        }
+//        if (a < 0) {
+//            binZM[0] = 1;
+//        } else {
+//            binZM[0] = 0;
+//        }
+//        for (int i = 0; i < 32; i++) {
+//            if (a < 0) {
+//                binZU1[i] = (binZM[i] == 0) ? 1 : 0;
+//            } else {
+//                binZU1[i] = binZM[i];
+//            }
+//        }
+//        boolean p = false;
+//        if (a < 0) {
+//            for (int i = 31; i >= 0; i--) {
+//                if (binZU1[i] == 1 && !p) {
+//                    binZU2[i] = 0;
+//                    p = true;
+//                } else if (binZU1[i] == 0 && p) {
+//                    binZU2[i] = 1;
+//                    p = false;
+//                } else {
+//                    binZU2[i] = binZU1[i];
+//                }
+//            }
+//        } else {
+//            for (int i = 0; i < 32; i++) {
+//                binZU2[i] = binZM[i];
+//            }
+//        }
+//
+//        String numZU2 = "";
+//        for(int i : binZU2) {
+//            numZU2 += (i);
+//        }
+//        return numZU2;
+//    }
+//    public static String addZM(String bin1, String bin2, int bitLength) {
+//        int sign1 = bin1.charAt(0) == '1' ? -1 : 1;
+//        int sign2 = bin2.charAt(0) == '1' ? -1 : 1;
+//        String absBin1 = bin1.substring(1);
+//        String absBin2 = bin2.substring(1);
+//        int num1 = sign1 * Integer.parseInt(absBin1, 2);
+//        int num2 = sign2 * Integer.parseInt(absBin2, 2);
+//        int result = num1 + num2;
+//        String binaryResult = Integer.toBinaryString(Math.abs(result));
+//        binaryResult = String.format("%" + (bitLength - 1) + "s", binaryResult).replace(' ', '0');
+//        if (result < 0) {
+//            return "1" + binaryResult;
+//        } else {
+//            return "0" + binaryResult;
+//        }
+//    }
+//    public static String addZU1(String bin1, String bin2, int bitLength) {
+//        int num1 = toZU1(bin1);
+//        int num2 = toZU1(bin2);
+//        int result = num1 + num2;
+//        return toZU1(result, bitLength);
+//    }
+//    public static String addZU2(String bin1, String bin2, int bitLength) {
+//        int num1 = toZU2(bin1);
+//        int num2 = toZU2(bin2);
+//        int result = num1 + num2;
+//        return toZU2(result, bitLength);
+//    }
+//        public static String addZM(String a, String b) {
+//        StringBuilder sb = new StringBuilder();
+//        int i = a.length() - 1;
+//        int j = b.length() - 1;
+//        int carry = 0;
+//
+//        while(i >= 0 || j >= 0){
+//            int sum = carry;
+//            if (i >= 0) sum += a.charAt(i) - '0';
+//            if (j >= 0) sum += b.charAt(j) - '0';
+//            sb.append(sum % 2);
+//            carry = sum / 2;
+//            i--;
+//            j--;
+//        }
+//        if(carry != 0)sb.append(carry);
+//        return sb.reverse().toString();
+//    }
+}
+//zadanie 7
+ Scanner skaner = new Scanner(System.in);
+
+        System.out.print("Podaj pierwszą liczbę całkowitą: ");
+        int liczba1 = skaner.nextInt();
+        System.out.print("Podaj drugą liczbę całkowitą: ");
+        int liczba2 = skaner.nextInt();
+
+        int[] binarnie1 = konwertujNaBinarne(liczba1);
+        int[] binarnie2 = konwertujNaBinarne(liczba2);
+
+        System.out.println("Liczba " + liczba1 + " w kodzie ZM: " + binarneNaString(binarnie1));
+        System.out.println("Liczba " + liczba1 + " w kodzie ZU1: " + binarneNaString(konwertujNaZU1(binarnie1)));
+        System.out.println("Liczba " + liczba1 + " w kodzie ZU2: " + binarneNaString(konwertujNaZU2(binarnie1)));
+
+        System.out.println("Liczba " + liczba2 + " w kodzie ZM: " + binarneNaString(binarnie2));
+        System.out.println("Liczba " + liczba2 + " w kodzie ZU1: " + binarneNaString(konwertujNaZU1(binarnie2)));
+        System.out.println("Liczba " + liczba2 + " w kodzie ZU2: " + binarneNaString(konwertujNaZU2(binarnie2)));
+
+        int wynik = pomnoz(liczba1, liczba2);
+        System.out.println("Wynik mnożenia metodą Booth'a: " + liczba1 + " * " + liczba2 + " = " + wynik);
+
+        skaner.close();
+    }
+
+    public static int[] konwertujNaBinarne(int liczba) {
+        int[] binarne = new int[32];
+        int indeks = 31;
+        int liczbaAbsolutna = Math.abs(liczba);
+
+        while (liczbaAbsolutna > 0) {
+            binarne[indeks--] = liczbaAbsolutna % 2;
+            liczbaAbsolutna /= 2;
+        }
+
+        if (liczba < 0) {
+            binarne[0] = 1;
+        }
+
+        return binarne;
+    }
+
+    public static int[] konwertujNaZU1(int[] zm) {
+        if (zm[0] == 0) return zm;
+        int[] zu1 = new int[32];
+        System.arraycopy(zm, 0, zu1, 0, 32);
+        for (int i = 1; i < 32; i++) {
+            zu1[i] = 1 - zu1[i];
+        }
+        return zu1;
+    }
+
+    public static int[] konwertujNaZU2(int[] zm) {
+        if (zm[0] == 0) return zm;
+        int[] zu2 = konwertujNaZU1(zm);
+        for (int i = 31; i > 0; i--) {
+            if (zu2[i] == 0) {
+                zu2[i] = 1;
+                break;
+            }
+            zu2[i] = 0;
+        }
+        return zu2;
+    }
+
+    public static String binarneNaString(int[] binarne) {
+        StringBuilder sb = new StringBuilder();
+        for (int bit : binarne) {
+            sb.append(bit);
+        }
+        return sb.toString();
+    }
+
+    public static int pomnoz(int mnozna, int mnoznik) {
+        int iloczyn = 0;
+        int m = mnozna;
+        int r = mnoznik;
+        int a = 0;
+        int n = 32;
+
+        for (int i = 0; i < n; i++) {
+            int najmniejszyBit = r & 1;
+            int poprzedniNajmniejszyBit = (r & 2) >> 1;
+
+            if (najmniejszyBit == 1 && poprzedniNajmniejszyBit == 0) {
+                a -= m;
+            } else if (najmniejszyBit == 0 && poprzedniNajmniejszyBit == 1) {
+                a += m;
+            }
+
+            a = (a >> 1) | (a & 0x80000000);
+            r = (r >> 1) | ((a & 1) << 31);
+        }
+
+        iloczyn = r;
+        return iloczyn;
+
+//zadanie 8 
+ Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj dzielną (liczba całkowita): ");
+        int dzielna = scanner.nextInt();
+        System.out.print("Podaj dzielnik (liczba całkowita): ");
+        int dzielnik = scanner.nextInt();
+
+        int[] binarnaDzielna = konwertujNaBinarne(Math.abs(dzielna));
+        int[] binarnyDzielnik = konwertujNaBinarne(Math.abs(dzielnik));
+
+        System.out.println("Dzielna w kodzie ZM: " + binarneNaString(binarnaDzielna));
+        System.out.println("Dzielnik w kodzie ZM: " + binarneNaString(binarnyDzielnik));
+
+        System.out.println("\nWynik dzielenia metodą porównawczą:");
+        int[] wynikPorownawcza = dzieleniePorownawcze(dzielna, dzielnik);
+        System.out.println("Iloraz: " + wynikPorownawcza[0] + ", Reszta: " + wynikPorownawcza[1]);
+
+        System.out.println("\nWynik dzielenia metodą nierestytucyjną:");
+        int[] wynikNierestytucyjna = dzielenieNierestytucyjne(dzielna, dzielnik);
+        System.out.println("Iloraz: " + wynikNierestytucyjna[0] + ", Reszta: " + wynikNierestytucyjna[1]);
+
+        scanner.close();
+    }
+
+    public static int[] konwertujNaBinarne(int liczba) {
+        int[] binarne = new int[32];
+        for (int i = 31; i >= 0; i--) {
+            binarne[i] = liczba & 1;
+            liczba >>= 1;
+        }
+        return binarne;
+    }
+
+    public static String binarneNaString(int[] binarne) {
+        StringBuilder sb = new StringBuilder();
+        for (int bit : binarne) {
+            sb.append(bit);
+        }
+        return sb.toString();
+    }
+
+    public static int[] dzieleniePorownawcze(int dzielna, int dzielnik) {
+        if (dzielnik == 0) {
+            throw new ArithmeticException("Dzielenie przez zero!");
+        }
+
+        int znak = ((dzielna < 0) ^ (dzielnik < 0)) ? -1 : 1;
+        dzielna = Math.abs(dzielna);
+        dzielnik = Math.abs(dzielnik);
+
+        int iloraz = 0;
+        int reszta = 0;
+
+        for (int i = 31; i >= 0; i--) {
+            reszta <<= 1;
+            reszta |= (dzielna >>> i) & 1;
+            if (reszta >= dzielnik) {
+                reszta -= dzielnik;
+                iloraz |= (1 << i);
+            }
+        }
+
+        return new int[]{znak * iloraz, reszta};
+    }
+
+    public static int[] dzielenieNierestytucyjne(int dzielna, int dzielnik) {
+        if (dzielnik == 0) {
+            throw new ArithmeticException("Dzielenie przez zero!");
+        }
+
+        int znak = ((dzielna < 0) ^ (dzielnik < 0)) ? -1 : 1;
+        dzielna = Math.abs(dzielna);
+        dzielnik = Math.abs(dzielnik);
+
+        int iloraz = 0;
+        int reszta = 0;
+        int przesunietyDzielnik = dzielnik << 31;
+
+        for (int i = 0; i < 32; i++) {
+            reszta <<= 1;
+            reszta |= (dzielna >>> 31 - i) & 1;
+            if (reszta >= 0) {
+                reszta -= przesunietyDzielnik;
+                iloraz = (iloraz << 1) | 1;
+            } else {
+                reszta += przesunietyDzielnik;
+                iloraz = iloraz << 1;
+            }
+        }
+
+        if (reszta < 0) {
+            reszta += dzielnik;
+            iloraz--;
+        }
+
+        return new int[]{znak * iloraz, reszta};
+System.out.println("Zad 9");
+                System.out.print("Podaj liczbe n: ");
+                int n = sc.nextInt();
+                if(n < 0) n *= -1;
+                Boolean[][] boolArray = new Boolean[n][n];
+                for(int i = 0; i < n; i++){
+                    List<Integer> iDidviders = new ArrayList<>();
+                    for(int l = 1; l <= i + 1; l++){
+                        if((i + 1) % l == 0) iDidviders.add(l);
+                    }
+                    for(int j = 0; j < n; j++){
+                        Boolean isRelFirst = true;
+                        for(int l = 1; l <= j + 1; l++){
+                            if((j + 1) % l == 0 && iDidviders.contains(l) && l != 1){
+                                isRelFirst = false;
+                                break;
+                            }
+                        }
+                        boolArray[i][j] = isRelFirst;
+                    }
+                }
+                for(int i = 0; i < n; i++){
+                    for(int j = 0; j < n; j++){
+                        if(boolArray[i][j]) System.out.print("+ ");
+                        else System.out.print(". ");
+                    }
+                    System.out.println();
+                }
+            }
+
+            private static String comparativeDivision(String dividend, String divisor) {
+                StringBuilder quotient = new StringBuilder("0".repeat(32));
+                StringBuilder remainder = new StringBuilder("0".repeat(32));
+                dividend = padTo32Bits(dividend);
+                divisor = padTo32Bits(divisor);
+
+                for (int i = 0; i < 32; i++) {
+                    remainder.deleteCharAt(0);
+                    remainder.append(dividend.charAt(i));
+
+                    if (compare(remainder.toString(), divisor) >= 0) {
+                        quotient.setCharAt(i, '1');
+                        remainder = new StringBuilder(subtract(remainder.toString(), divisor));
+                    }
+                }
+
+                return quotient.toString();
+            }
+
+            private static String nonRestoringDivision(String dividend, String divisor) {
+                StringBuilder quotient = new StringBuilder("0".repeat(32));
+                StringBuilder remainder = new StringBuilder("0".repeat(32));
+                dividend = padTo32Bits(dividend);
+                divisor = padTo32Bits(divisor);
+                String negDivisor = negate(divisor);
+
+                for (int i = 0; i < 32; i++) {
+                    remainder.deleteCharAt(0);
+                    remainder.append(dividend.charAt(i));
+
+                    if (remainder.charAt(0) == '0') {
+                        remainder = new StringBuilder(add(remainder.toString(), negDivisor));
+                        quotient.setCharAt(i, '1');
+                    } else {
+                        remainder = new StringBuilder(add(remainder.toString(), divisor));
+                        quotient.setCharAt(i, '0');
+                    }
+                }
+
+                if (remainder.charAt(0) == '1') {
+                    remainder = new StringBuilder(add(remainder.toString(), divisor));
+                }
+
+                return quotient.toString();
+            }
+
+            private static String boothMultiplication(String multiplicand, String multiplier) {
+                multiplicand = padTo32Bits(multiplicand);
+                multiplier = padTo32Bits(multiplier);
+                StringBuilder product = new StringBuilder("0".repeat(64));
+                String m = multiplicand + "0".repeat(32);
+                String negM = negate(m);
+                product.replace(32, 64, multiplier + "0");
+
+                for (int i = 0; i < 32; i++) {
+                    String lastTwoBits = product.substring(62, 64);
+                    if (lastTwoBits.equals("01")) {
+                        String sum = add(product.substring(0, 32), m);
+                        product.replace(0, 32, sum);
+                    } else if (lastTwoBits.equals("10")) {
+                        String sum = add(product.substring(0, 32), negM);
+                        product.replace(0, 32, sum);
+                    }
+                    char msb = product.charAt(0);
+                    product.deleteCharAt(63);
+                    product.insert(0, msb);
+                }
+                return product.substring(0, 32);
+            }
+
+            private static String padTo32Bits(String binary) {
+                return "0".repeat(Math.max(0, 32 - binary.length())) + binary;
+            }
+
+            private static String negate(String binary) {
+                StringBuilder negated = new StringBuilder();
+                for (char bit : binary.toCharArray()) {
+                    negated.append(bit == '0' ? '1' : '0');
+                }
+                return add(negated.toString(), "1" + "0".repeat(63));
+            }
+
+            private static int compare(String a, String b) {
+                for (int i = 0; i < 32; i++) {
+                    if (a.charAt(i) < b.charAt(i)) return -1;
+                    if (a.charAt(i) > b.charAt(i)) return 1;
+                }
+                return 0;
+            }
+
+            private static String subtract(String a, String b) {
+                return add(a, negate(b));
+            }
+
+            private static String add(String a, String b) {
+                StringBuilder result = new StringBuilder();
+                int carry = 0;
+                for (int i = a.length() - 1; i >= 0; i--) {
+                    int sum = (a.charAt(i) - '0') + (b.charAt(i) - '0') + carry;
+                    result.insert(0, sum % 2);
+                    carry = sum / 2;
+                }
+                return result.toString();
+            }
+
+
+            public static String addZM(String bin1, String bin2, int bitLength) {
+                int sign1 = bin1.charAt(0) == '1' ? -1 : 1;
+                int sign2 = bin2.charAt(0) == '1' ? -1 : 1;
+                String absBin1 = bin1.substring(1);
+                String absBin2 = bin2.substring(1);
+                int num1 = sign1 * Integer.parseInt(absBin1, 2);
+                int num2 = sign2 * Integer.parseInt(absBin2, 2);
+                int result = num1 + num2;
+                String binaryResult = Integer.toBinaryString(Math.abs(result));
+                binaryResult = String.format("%" + (bitLength - 1) + "s", binaryResult).replace(' ', '0');
+                if (result < 0) {
+                    return "1" + binaryResult;
+                } else {
+                    return "0" + binaryResult;
+                }
+            }
+            public static String addZU1(String bin1, String bin2, int bitLength) {
+                int num1 = fromZU1(bin1);
+                int num2 = fromZU1(bin2);
+                int result = num1 + num2;
+                return toZU1(result, bitLength);
+            }
+            public static String addZU2(String bin1, String bin2, int bitLength) {
+                int num1 = fromZU2(bin1);
+                int num2 = fromZU2(bin2);
+                int result = num1 + num2;
+                return toZU2(result, bitLength);
+            }
+            public static int fromZU1(String binary) {
+                if (binary.charAt(0) == '0') {
+                    return Integer.parseInt(binary, 2);
+                } else {
+                    String inverted = invert(binary.substring(1));
+                    int absValue = Integer.parseInt(inverted, 2);
+                    return -(absValue);
+                }
+            }
+            public static int fromZU2(String binary) {
+                if (binary.charAt(0) == '0') {
+                    return Integer.parseInt(binary, 2);
+                } else {
+                    int twoComplement = Integer.parseInt(binary, 2);
+                    int maxValue = (int) Math.pow(2, binary.length());
+                    return twoComplement - maxValue;
+                }
+            }
+            public static String toZU1(int number, int bitSize) {
+                if (number >= 0) {
+                    return String.format("%" + bitSize + "s", Integer.toBinaryString(number)).replace(' ', '0');
+                } else {
+                    String binary = Integer.toBinaryString(-number);
+                    binary = String.format("%" + bitSize + "s", binary).replace(' ', '0');
+                    return "1" + invert(binary.substring(1));
+                }
+            }
+            public static String toZU2(int number, int bitSize) {
+                if (number >= 0) {
+                    return String.format("%" + bitSize + "s", Integer.toBinaryString(number)).replace(' ', '0');
+                } else {
+                    int maxValue = (int) Math.pow(2, bitSize);
+                    return Integer.toBinaryString(maxValue + number).substring(1);
+                }
+            }
+            public static String invert(String binary) {
+                StringBuilder result = new StringBuilder();
+                for (char bit : binary.toCharArray()) {
+                    result.append(bit == '0' ? '1' : '0');
+                }
+                return result.toString();
+            }
+        }
